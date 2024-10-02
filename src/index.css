@@ -1,0 +1,40 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body{
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.sidebar{
+  background: rgb(229, 229, 229);
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 2rem);
+  gap: 1.5rem;
+}
+
+.sidebar .title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-decoration: underline;
+}
+
+.sidebar button{
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  padding-left: 2rem;
+}
+
