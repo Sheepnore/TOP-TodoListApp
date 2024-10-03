@@ -38,3 +38,31 @@ body{
   padding-left: 2rem;
 }
 
+.main-content{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  
+}
+
+.main-content .headerSection{
+  border-bottom: 1px solid gray;
+}
+
+.main-content .headerSection *{
+  margin: 1rem 2rem;
+}
+
+.main-content .tasksContainer{
+  display: flex;
+}
+
+.main-content .tasksContainer .addTaskButton{
+  font-size: 2rem;
+  border: none;
+  width: 100%;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+
+
