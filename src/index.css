@@ -64,5 +64,18 @@ body{
   cursor: pointer;
 }
 
+dialog {
+  width: 400px;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
 
 

@@ -14,13 +14,12 @@ export default function generateTaskContent(tab){
     // DOM
     mainContent.appendChild(headerSection);
     headerSection.appendChild(header);
-    headerSection.appendChild(headerDescription);
+    headerSection.appendChild(headerDescription);    
   }
 
   function renderTaskSectionHtml(){
     const tasksContainer = document.createElement('div');
     tasksContainer.classList.add('tasksContainer');
-    
     const addTaskButton = document.createElement('button');
     addTaskButton.classList.add('addTaskButton');
     addTaskButton.textContent = '+'
@@ -30,7 +29,39 @@ export default function generateTaskContent(tab){
     tasksContainer.appendChild(addTaskButton);
   }
 
+  const dialog = document.querySelector('dialog');
+
+  function handleAddTaskButtonClick(){
+    const showDialog = document.querySelector('.addTaskButton');
+    showDialog.addEventListener('click',()=>{
+      dialog.showModal();
+    });
+    handleDialogClose();
+    addTaskToList();
+  }
+
+  function handleDialogClose(){
+    const closeDialog = document.getElementById('closeDialog');
+    closeDialog.addEventListener('click',()=>{
+      dialog.close();
+    });
+  }
+
+  function addTaskToList(){
+    const addTask = document.querySelector('#addTask');
+    const tasks = tab.tasks;
+    addTask.addEventListener('click',()=>{
+      const inputTask = document.querySelector('#task');
+      const taskName = inputTask.value;
+      tasks.push(taskName);
+      inputTask.value = '';
+      dialog.close();
+
+    });
+  }
+
 
   renderHeaderSectionHtml();
   renderTaskSectionHtml();
+  handleAddTaskButtonClick();
 }

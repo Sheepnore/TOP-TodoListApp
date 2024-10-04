@@ -1,23 +1,19 @@
   const sidebarTabs = [
   {
     name:'Today',
-    tasks: {
-    }
+    tasks: [],
   },
   {
     name:'Upcoming',
-    tasks: {
-    },
+    tasks: [],
   },
   {
     name:'Anytime',
-    tasks: {
-    }
+    tasks: [],
   },
   {
     name: 'Someday',
-    tasks: {
-    }
+    tasks: [],
   }
 ];
 
