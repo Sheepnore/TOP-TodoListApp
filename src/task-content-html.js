@@ -1,3 +1,5 @@
+import { saveToLocalStorage } from "./tasks";
+import { tasksData } from "./sidebar-html";
 export default function generateTaskContent(tab){
   const mainContent = document.querySelector('.main-content');
   // clear previous html
@@ -22,7 +24,7 @@ export default function generateTaskContent(tab){
     tasksContainer.classList.add('tasksContainer');
     const addTaskButton = document.createElement('button');
     addTaskButton.classList.add('addTaskButton');
-    addTaskButton.textContent = '+'
+    addTaskButton.textContent = '+';
 
     // DOM
     mainContent.appendChild(tasksContainer);
@@ -55,13 +57,29 @@ export default function generateTaskContent(tab){
       const taskName = inputTask.value;
       tasks.push(taskName);
       inputTask.value = '';
+      saveToLocalStorage(tasksData);
+      console.log(tasksData);
       dialog.close();
 
     });
   }
 
+  function renderTodoTask(){
+    const tasks = tab.tasks;
+    const tasksContainer = document.querySelector('.tasksContainer');
+    const tasksListHtml = document.createElement('div')
+    tasksListHtml.classList.add('tasksList');
+    tasksContainer.appendChild(tasksListHtml);
+    tasks.forEach(task=>{
+      const taskHtml = document.createElement('div');
+      taskHtml.classList.add('task');
+      taskHtml.textContent = task;
+      tasksListHtml.appendChild(taskHtml); 
+    }) 
+  }
 
   renderHeaderSectionHtml();
   renderTaskSectionHtml();
   handleAddTaskButtonClick();
+  renderTodoTask();
 }

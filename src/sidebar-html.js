@@ -1,11 +1,13 @@
-import sidebarTabs from "./tasks";
+import { getData } from "./tasks";
 import generateTaskContent from "./task-content-html";
 
-export default function renderSidebar(){
+export const tasksData = getData();
 
+export default function renderSidebar(){
+  
   function renderSidebarTabs(){
     const sidebar = document.querySelector('.sidebar');
-    sidebarTabs.forEach(tab=>{
+    tasksData.forEach(tab=>{
       const tabElement = document.createElement('button');
       tabElement.classList.add(tab.name.toLowerCase());
       tabElement.classList.add('sidebarTab');
@@ -17,7 +19,7 @@ export default function renderSidebar(){
   function handleTabClick(){
     const sidebarTabElements = document.querySelectorAll('.sidebarTab');
     sidebarTabElements.forEach(tabElem=>{
-      sidebarTabs.forEach(tab=>{
+      tasksData.forEach(tab=>{
         if (tabElem.textContent === tab.name){
           tabElem.addEventListener('click',()=>{
             generateTaskContent(tab);
